@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Bina Marga | Provinsi Kalimantan Timur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- C3 Chart css -->
+    <link href="assets/libs/c3/c3.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
+
+</head>
+
+<body data-layout="horizontal">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <!-- Topbar Start -->
+            <div class="navbar-custom">
+                <div class="container-fluid">
+                    <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                        <li class="dropdown notification-list">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+
+
+                        <!-- <li class="dropdown notification-list">
+                            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                                <i class="fe-settings noti-icon"></i>
+                            </a>
+                        </li> -->
+                        <li class="dropdown notification-list d-none d-md-block">
+                            <a class="nav-link" href="index.html" style="padding: 0 10px;">
+                                <img src="assets/images/zi.png" alt="Logo" height="40" style="vertical-align: middle;">
+                            </a>
+                        </li>
+                        <li class="dropdown notification-list d-none d-md-block">
+                            <a class="nav-link" href="index.html" style="padding: 0 10px;">
+                                <img src="assets/images/berakhlak.png" alt="Logo" height="40" style="vertical-align: middle;">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- LOGO -->
+                    <div class="logo-box">
+
+                        <a href="index.html" class="logo text-center logo-dark">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-dark.png" alt="" height="50">
+                                <!-- <span class="logo-lg-text-dark">Adminox</span> -->
+                            </span>
+                            <span class="logo-sm">
+                                <!-- <span class="logo-lg-text-dark">A</span> -->
+                                <img src="assets/images/logo-sm.png" alt="" height="50">
+                            </span>
+                        </a>
+
+                        <a href="index.html" class="logo text-center logo-light">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-light.png" alt="" height="50">
+                                <!-- <span class="logo-lg-text-dark">Adminox</span> -->
+                            </span>
+                            <span class="logo-sm">
+                                <!-- <span class="logo-lg-text-dark">A</span> -->
+                                <img src="assets/images/logo-sm.png" alt="" height="50">
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+            <div class="topbar-menu">
+                <div class="container-fluid">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+                        <ul class="navigation-menu">
+
+                            <li class="">
+                                <a href="index.html"> <i class="fe-airplay"></i>Beranda</a>
+                            </li>
+
+                            <li class="">
+                                <a href="webgis.html">
+                                    <i class="fe-map-pin"></i>WebGIS
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="data.html">
+                                    <i class="fe-database"></i>Data Jembatan</a>
+                            </li>
+
+                            <li class="">
+                                <a href="#"><i class="fe-plus-square"></i>Extras</a>
+
+                            </li>
+                        </ul>
+                        <!-- End navigation menu -->
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- end #navigation -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end navbar-custom -->
+        </header>
+        <!-- End Navigation Bar-->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <!-- <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                    </ol>
+                                </div> -->
+                                <h4 class="page-title">Dashboard</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card-box bg-soft-secondary">
+                                <h4 class="header-title mb-4">Peta Sebaran Jembatan</h4>
+                                <!-- Filter Controls -->
+                                <div class="mb-3">
+                                    <form id="filter-form" class="form-row align-items-end">
+                                        <div class="form-group col-md-3">
+                                            <label for="filter-kabupaten">Kabupaten/Kota</label>
+                                            <select class="form-control" id="filter-kabupaten">
+                                                <option value="">Semua</option>
+                                                <option value="Samarinda">Samarinda</option>
+                                                <option value="Tenggarong">Kutai Kartanegara</option>
+                                                <option value="Balikpapan">Balikpapan</option>
+                                                <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="filter-kondisi">Kondisi</label>
+                                            <select class="form-control" id="filter-kondisi">
+                                                <option value="">Semua</option>
+                                                <option value="Baik">Baik</option>
+                                                <option value="Rusak Ringan">Rusak Ringan</option>
+                                                <option value="Perbaikan">Perbaikan</option>
+                                                <!-- Tambahkan opsi lain jika ada -->
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="filter-tahun">Tahun Dibangun</label>
+                                            <select class="form-control" id="filter-tahun">
+                                                <option value="">Semua</option>
+                                                <option value="1987">1987</option>
+                                                <option value="2001">2001</option>
+                                                <option value="2010">2010</option>
+                                                <option value="2015">2015</option>
+                                                <option value="2018">2018</option>
+                                                <!-- Tambahkan tahun lain jika ada -->
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="filter-jenis">Jenis Jembatan</label>
+                                            <select class="form-control" id="filter-jenis">
+                                                <option value="">Semua</option>
+                                                <option value="Gantung">Gantung</option>
+                                                <option value="Pelengkung">Pelengkung</option>
+                                                <option value="Rangka Baja">Rangka Baja</option>
+                                                <!-- Tambahkan jenis lain jika ada -->
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <button type="button" class="btn btn-primary btn-block" id="btn-filter">Terapkan Filter</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <script>
+                                    // Mapping data jembatan ke kabupaten, kondisi, tahun, dan jenis (jenis dummy)
+                                    const bridgeData = [
+                                        {
+                                            name: "Jembatan Mahakam",
+                                            kabupaten: "Samarinda",
+                                            kondisi: "Baik",
+                                            tahun: "1987",
+                                            jenis: "Rangka Baja"
+                                        },
+                                        {
+                                            name: "Jembatan Kartanegara",
+                                            kabupaten: "Tenggarong",
+                                            kondisi: "Perbaikan",
+                                            tahun: "2001",
+                                            jenis: "Pelengkung"
+                                        },
+                                        {
+                                            name: "Jembatan Pulau Balang",
+                                            kabupaten: "Balikpapan",
+                                            kondisi: "Baik",
+                                            tahun: "2010",
+                                            jenis: "Rangka Baja"
+                                        },
+                                        {
+                                            name: "Jembatan Sungai Wain",
+                                            kabupaten: "Balikpapan",
+                                            kondisi: "Rusak Ringan",
+                                            tahun: "2015",
+                                            jenis: "Gantung"
+                                        },
+                                        {
+                                            name: "Jembatan Benuo Taka",
+                                            kabupaten: "Samarinda",
+                                            kondisi: "Baik",
+                                            tahun: "2018",
+                                            jenis: "Pelengkung"
+                                        }
+                                    ];
+
+                                    function filterTable() {
+                                        const kabupaten = document.getElementById('filter-kabupaten').value;
+                                        const kondisi = document.getElementById('filter-kondisi').value;
+                                        const tahun = document.getElementById('filter-tahun').value;
+                                        const jenis = document.getElementById('filter-jenis').value;
+
+                                        const rows = document.querySelectorAll('#datatable tbody tr[data-bridge]');
+                                        rows.forEach(row => {
+                                            const bridgeName = row.getAttribute('data-bridge');
+                                            const data = bridgeData.find(b => b.name === bridgeName);
+                                            let show = true;
+                                            if (kabupaten && data.kabupaten !== kabupaten) show = false;
+                                            if (kondisi && data.kondisi !== kondisi) show = false;
+                                            if (tahun && data.tahun !== tahun) show = false;
+                                            if (jenis && data.jenis !== jenis) show = false;
+                                            row.style.display = show ? '' : 'none';
+                                        });
+                                    }
+
+                                    document.getElementById('btn-filter').addEventListener('click', filterTable);
+                                </script>
+                            </div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="card-box">
+                                <h4 class="header-title mb-4">Data Jembatan</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover m-0 tickets-list table-actions-bar dt-responsive nowrap"
+                                        style="border-collapse: collapse; border-spacing: 0; width: 100%;" id="datatable">
+                                        <thead>
+                                            <tr class="bg-light">
+                                                <th class="align-middle" rowspan="2">No. Jembatan</th>
+                                                <th class="align-middle" rowspan="2">Lokasi</th>
+                                                <th class="align-middle" rowspan="2">STA</th>
+                                                <th class="align-middle" rowspan="2">Type Jembatan</th>
+                                                <th class="align-middle" colspan="3">Dimensi</th>
+                                                <th class="align-middle" colspan="2">Bangunan Atas</th>
+                                                <th class="align-middle" colspan="2">Bangunan Bawah</th>
+                                                <th class="align-middle" colspan="2">Bangunan Pondasi</th>
+                                                <th class="align-middle" colspan="2">Bangunan Lantai</th>
+                                                <th class="align-middle" rowspan="2">Tahun Dibangun</th>
+                                                <th class="align-middle" rowspan="2">Keterangan</th>
+                                                <th class="align-middle" rowspan="2">Hasil Inspeksi</th>
+                                                <th class="align-middle" rowspan="2"></th>
+                                            </tr>
+                                            <tr class="bg-light">
+                                                <th class="align-middle">Panjang</th>
+                                                <th class="align-middle">Lebar</th>
+                                                <th class="align-middle">Jumlah bentang</th>
+                                                <th class="align-middle">Tipe</th>
+                                                <th class="align-middle">Kondisi</th>
+                                                <th class="align-middle">Tipe</th>
+                                                <th class="align-middle">Kondisi</th>
+                                                <th class="align-middle">Tipe</th>
+                                                <th class="align-middle">Kondisi</th>
+                                                <th class="align-middle">Tipe</th>
+                                                <th class="align-middle">Kondisi</th>
+                                                <!-- <th class="align-middle"></th> -->
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr data-bridge="Jembatan Mahakam">
+                                                <td>P.34.00.001</td>
+                                                <td>Lok Bahu, Samarinda Ulu, Samarinda</td>
+                                                <td>-</td>
+                                                <td>Gantung</td>
+                                                <td>710</td>
+                                                <td>15</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Kayu Ulin</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>15 Mar 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Kartanegara">
+                                                <td>P.34.00.002</td>
+                                                <td>Tenggarong, Tenggarong, Kutai Kartanegara</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>1022</td>
+                                                <td>21</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-warning">Rusak Ringan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>18 Mar 2024</td>
+                                                <td><span class="badge badge-danger">Perbaikan</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Pulau Balang">
+                                                <td>P.34.00.003</td>
+                                                <td>Karang Joang, Balikpapan Utara, Balikpapan</td>
+                                                <td>-</td>
+                                                <td>Rangka Baja</td>
+                                                <td>540</td>
+                                                <td>12</td>
+                                                <td>2</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>22 Mar 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Sungai Wain">
+                                                <td>P.34.00.004</td>
+                                                <td>Sungai Wain, Balikpapan Utara, Balikpapan</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>280</td>
+                                                <td>8</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-warning">Rusak Ringan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-warning">Rusak Ringan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Kayu Ulin</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>25 Mar 2024</td>
+                                                <td><span class="badge badge-warning">Rusak Ringan</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Benuo Taka">
+                                                <td>P.34.00.005</td>
+                                                <td>Benuo Taka, Penajam, Penajam Paser Utara</td>
+                                                <td>-</td>
+                                                <td>Gantung</td>
+                                                <td>450</td>
+                                                <td>14</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>28 Mar 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Melak">
+                                                <td>P.34.00.006</td>
+                                                <td>Melak, Melak, Kutai Barat</td>
+                                                <td>-</td>
+                                                <td>Gantung</td>
+                                                <td>350</td>
+                                                <td>10</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>19 Feb 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Berau">
+                                                <td>P.34.00.007</td>
+                                                <td>Tanjung Redeb, Tanjung Redeb, Berau</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>400</td>
+                                                <td>11</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>21 Feb 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Bontang">
+                                                <td>P.34.00.008</td>
+                                                <td>Bontang Kuala, Bontang Utara, Bontang</td>
+                                                <td>-</td>
+                                                <td>Rangka Baja</td>
+                                                <td>320</td>
+                                                <td>9</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>17 Mar 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Paser">
+                                                <td>P.34.00.009</td>
+                                                <td>Tanah Grogot, Tanah Grogot, Paser</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>500</td>
+                                                <td>13</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-warning">Perlu Perbaikan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-warning">Perlu Perbaikan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Kayu Ulin</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>09 Mar 2024</td>
+                                                <td><span class="badge badge-warning">Perlu Perbaikan</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Kutai Timur">
+                                                <td>P.34.00.010</td>
+                                                <td>Sangatta, Sangatta Utara, Kutai Timur</td>
+                                                <td>-</td>
+                                                <td>Rangka Baja</td>
+                                                <td>600</td>
+                                                <td>12</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>02 Mar 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Mahakam Ulu">
+                                                <td>P.34.00.011</td>
+                                                <td>Long Bagun, Long Bagun, Mahakam Ulu</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>350</td>
+                                                <td>10</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-danger">Kritis</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-danger">Kritis</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Kayu Ulin</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>05 Mar 2024</td>
+                                                <td><span class="badge badge-danger">Kritis</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Loa Janan">
+                                                <td>P.34.00.012</td>
+                                                <td>Loa Janan, Loa Janan, Kutai Kartanegara</td>
+                                                <td>-</td>
+                                                <td>Gantung</td>
+                                                <td>420</td>
+                                                <td>11</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>11 Mar 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Samboja">
+                                                <td>P.34.00.013</td>
+                                                <td>Samboja, Samboja, Kutai Kartanegara</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>390</td>
+                                                <td>10</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-warning">Perlu Perbaikan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-warning">Perlu Perbaikan</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Kayu Ulin</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>10 Jan 2024</td>
+                                                <td><span class="badge badge-warning">Perlu Perbaikan</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Muara Badak">
+                                                <td>P.34.00.014</td>
+                                                <td>Muara Badak, Muara Badak, Kutai Kartanegara</td>
+                                                <td>-</td>
+                                                <td>Rangka Baja</td>
+                                                <td>370</td>
+                                                <td>9</td>
+                                                <td>1</td>
+                                                <td>Gelagar Baja</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>12 Apr 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Penajam">
+                                                <td>P.34.00.015</td>
+                                                <td>Penajam, Penajam, Penajam Paser Utara</td>
+                                                <td>-</td>
+                                                <td>Gantung</td>
+                                                <td>410</td>
+                                                <td>12</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>27 Feb 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr data-bridge="Jembatan Talisayan">
+                                                <td>P.34.00.016</td>
+                                                <td>Talisayan, Talisayan, Berau</td>
+                                                <td>-</td>
+                                                <td>Pelengkung</td>
+                                                <td>330</td>
+                                                <td>8</td>
+                                                <td>1</td>
+                                                <td>Gelagar Beton bertulang</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Beton</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>Kayu Ulin</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>27 Feb 2024</td>
+                                                <td><span class="badge badge-success">Baik</span></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info btn-sm" title="Detail" data-toggle="modal" data-target="#pdfModal">
+                                                        <i class="fe-eye"></i> Detail
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="pdfModalLabel">Detail Hasil Inspeksi</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body" style="height:80vh;">
+                                        <iframe src="assets/data/TKW01.pdf" width="100%" height="100%" style="border:none;"></iframe>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <script>
+                                    // Wait until DOM and map are ready
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Wait for map to be initialized
+                                        function setupTableMapInteraction() {
+                                            if (!window.bridgeMapData) {
+                                                setTimeout(setupTableMapInteraction, 100);
+                                                return;
+                                            }
+                                            var { markerRefs, map } = window.bridgeMapData;
+                                            var rows = document.querySelectorAll('#datatable tbody tr[data-bridge]');
+                                            rows.forEach(function (row) {
+                                                row.style.cursor = 'pointer';
+                                                row.addEventListener('click', function () {
+                                                    var bridgeName = row.getAttribute('data-bridge');
+                                                    var marker = markerRefs[bridgeName];
+                                                    if (marker) {
+                                                        var latlng = marker.getLatLng();
+                                                        map.setView(latlng, 13, { animate: true });
+                                                        marker.openPopup();
+                                                    }
+                                                });
+                                            });
+                                        }
+                                        setupTableMapInteraction();
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+                    <!-- end row -->
+                </div>
+
+                <!--- end row -->
+
+            </div> <!-- end container-fluid -->
+
+        </div> <!-- end content -->
+
+
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        2025 &copy;Widya Aika  <a href="">hardygraph</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+        <div class="rightbar-title">
+            <a href="javascript:void(0);" class="right-bar-toggle float-right">
+                <i class="mdi mdi-close"></i>
+            </a>
+            <h4 class="font-16 m-0 text-white">Theme</h4>
+        </div>
+        <div class="slimscroll-menu">
+
+            <div class="p-3">
+                <!-- <div class="alert alert-warning" role="alert">
+                    <strong>Customize </strong> the overall color scheme, layout, etc.
+                </div> -->
+                <div class="mb-2">
+                    <img src="assets/images/layouts/light.png" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="custom-control custom-switch mb-3">
+                    <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
+                    <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
+                </div>
+
+                <div class="mb-2">
+                    <img src="assets/images/layouts/dark.png" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="custom-control custom-switch mb-3">
+                    <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch"
+                        data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css" />
+                    <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
+                </div>
+            </div>
+        </div> <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <a href="javascript:void(0);" class="right-bar-toggle demos-show-btn">
+        <i class="mdi mdi-settings-outline mdi-spin"></i> &nbsp;Choose Theme
+    </a>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!--C3 Chart-->
+    <script src="assets/libs/d3/d3.min.js"></script>
+    <script src="assets/libs/c3/c3.min.js"></script>
+
+    <script src="assets/libs/echarts/echarts.min.js"></script>
+
+    <script src="assets/js/pages/dashboard.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+
+    <!-- third party js -->
+    <script src="assets/libs/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables/dataTables.responsive.min.js"></script>
+
+    <!-- Tickets js -->
+    <script src="assets/js/pages/tickets.init.js"></script>
+
+</body>
+
+</html>

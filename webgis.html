@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Bina Marga | Provinsi Kalimantan Timur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- C3 Chart css -->
+    <link href="assets/libs/c3/c3.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
+
+</head>
+
+<body data-layout="horizontal">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <!-- Topbar Start -->
+            <div class="navbar-custom">
+                <div class="container-fluid">
+                    <ul class="list-unstyled topnav-menu float-right mb-0">
+
+                        <li class="dropdown notification-list">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+
+
+                        <!-- <li class="dropdown notification-list">
+                            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                                <i class="fe-settings noti-icon"></i>
+                            </a>
+                        </li> -->
+                        <li class="dropdown notification-list d-none d-md-block">
+                            <a class="nav-link" href="index.html" style="padding: 0 10px;">
+                                <img src="assets/images/zi.png" alt="Logo" height="40" style="vertical-align: middle;">
+                            </a>
+                        </li>
+                        <li class="dropdown notification-list d-none d-md-block">
+                            <a class="nav-link" href="index.html" style="padding: 0 10px;">
+                                <img src="assets/images/berakhlak.png" alt="Logo" height="40" style="vertical-align: middle;">
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- LOGO -->
+                    <div class="logo-box">
+
+                        <a href="index.html" class="logo text-center logo-dark">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-dark.png" alt="" height="50">
+                                <!-- <span class="logo-lg-text-dark">Adminox</span> -->
+                            </span>
+                            <span class="logo-sm">
+                                <!-- <span class="logo-lg-text-dark">A</span> -->
+                                <img src="assets/images/logo-sm.png" alt="" height="50">
+                            </span>
+                        </a>
+
+                        <a href="index.html" class="logo text-center logo-light">
+                            <span class="logo-lg">
+                                <img src="assets/images/logo-light.png" alt="" height="50">
+                                <!-- <span class="logo-lg-text-dark">Adminox</span> -->
+                            </span>
+                            <span class="logo-sm">
+                                <!-- <span class="logo-lg-text-dark">A</span> -->
+                                <img src="assets/images/logo-sm.png" alt="" height="50">
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+            <div class="topbar-menu">
+                <div class="container-fluid">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+                        <ul class="navigation-menu">
+
+                            <li class="">
+                                <a href="index.html"> <i class="fe-airplay"></i>Beranda</a>
+                            </li>
+
+                            <li class="">
+                                <a href="webgis.html">
+                                    <i class="fe-map-pin"></i>WebGIS
+                                </a>
+                            </li>
+
+                            <li class="">
+                                <a href="data.html">
+                                    <i class="fe-database"></i>Data Jembatan</a>
+                            </li>
+
+                            <li class="">
+                                <a href="#"><i class="fe-plus-square"></i>Extras</a>
+
+                            </li>
+                        </ul>
+                        <!-- End navigation menu -->
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- end #navigation -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end navbar-custom -->
+        </header>
+        <!-- End Navigation Bar-->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <!-- <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                                    </ol>
+                                </div> -->
+                                <h4 class="page-title">Peta Sebaran Jembatan</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                            <div class="card-box">
+                                <!-- <h4 class="header-title mb-4">Peta Sebaran Jembatan</h4> -->
+                                <div id="map-jembatan"
+                                    style="width: 100%; height: 900px; border-radius: 8px; overflow: hidden; background: #e9ecef;">
+                                    <!-- Peta akan ditampilkan di sini -->
+                                    <!-- Leaflet CSS & JS -->
+                                    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+                                    <link rel="stylesheet"
+                                        href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+                                    <link rel="stylesheet"
+                                        href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+                                    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                                    <script
+                                        src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+                                    <!-- Leaflet CSS & JS -->
+                                    <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
+                                    <script src="assets/leaflet/leaflet.js"></script> 
+                                    <!-- mini maps -->
+                                    <link rel="stylesheet" href="assets/minimap/Control.MiniMap.min.css" />
+                                    <script src="assets/minimap/Control.MiniMap.min.js"></script> 
+
+                                        <!-- group layer control -->
+                                    <link rel="stylesheet" href="assets/group-control-layer/leaflet.groupedlayercontrol.css" />
+                                    <script src="assets/group-control-layer/leaflet.groupedlayercontrol.js"></script> 
+                                
+                                        <!-- Mouse Coordinate -->
+                                    <link rel="stylesheet" href="assets/leaflet/leaflet.mousecoordinate.css" />
+                                    <script src="assets/leaflet/leaflet.mousecoordinate.js"></script>
+                                    
+                                    <!-- marker cluster -->
+                                    <link rel="stylesheet" href="assets/leaflet/MarkerCluster.css" />
+                                    <link rel="stylesheet" href="assets/leaflet/MarkerCluster.Default.css" />
+                                    <script src="assets/leaflet/leaflet.markercluster-src.js"></script>
+
+                                    <!-- control zoombar -->
+                                    <link rel="stylesheet" type="text/css" href="assets/zoom-control/L.Control.ZoomBar.css"/>
+                                    <script type="text/javascript" src="assets/zoom-control/L.Control.ZoomBar.js"></script> 
+                                    <!-- measure -->
+                                    <link rel="stylesheet" href="assets/measure-master/leaflet-measure.css">
+                                    <script src="assets/measure-master/leaflet-measure.js"></script>
+                                    <!-- Leaflet.Coordinates -->
+                                    <script type="text/javascript" src="assets/leaflet-coordinate/Leaflet.Coordinates-0.1.5.min.js"></script>
+                                    <link rel="stylesheet" href="assets/leaflet-coordinate//Leaflet.Coordinates-0.1.5.css"/>
+                                    <!-- styled Layer Control -->
+                                    <link rel="stylesheet" href="assets/styled-layer-control/css/styledLayerControl.css" />
+                                    <script src="assets/styled-layer-control/src/styledLayerControl.js"></script>
+                                    
+                                    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false&key=AIzaSyDeqZIQXFKMXqYccaxFFHtsxlhafvRFeQ4"></script>
+                                    <script src="https://raruto.github.io/cdn/leaflet-google/0.0.3/leaflet-google.js"></script>
+
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+                                    <div id="leaflet-map" style="width:100%;height:100%;"></div>
+                                    <script>
+                                        // Google base layers
+                                        var g_roadmap   = L.tileLayer('http://{s}.google.com/vt?lyrs=m&x={x}&y={y}&z={z}',{
+                                            maxZoom: 20,
+                                            subdomains:['mt0','mt1','mt2','mt3']
+                                        });
+                                        var g_satellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                                            maxZoom: 20,
+                                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                                        });
+                                        var g_terrain   = L.tileLayer('http://{s}.google.com/vt?lyrs=p&x={x}&y={y}&z={z}',{
+                                            maxZoom: 20,
+                                            subdomains:['mt0','mt1','mt2','mt3']
+                                        });
+                                        var g_hybrid   = L.tileLayer('http://{s}.google.com/vt?lyrs=s,h&x={x}&y={y}&z={z}',{
+                                            maxZoom: 20,
+                                            subdomains:['mt0','mt1','mt2','mt3']
+                                        });
+
+                                        // OSM layers
+                                        var osmUrl='http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+                                        var osmAttrib='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+                                        var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+
+                                        // Dummy bridge data
+                                        const bridges = [
+                                            // ... (data tidak diubah)
+                                            {
+                                                kode_ruas: "P.34.00.001",
+                                                nama_ruas: "Jalan Teuku Umar Lok Bahu",
+                                                nomor: "P.34.00.001",
+                                                name: "Jembatan Mahakam",
+                                                panjang: 710,
+                                                lebar: 15,
+                                                desa: "Lok Bahu",
+                                                kecamatan: "Samarinda Ulu",
+                                                kabupaten: "Samarinda",
+                                                upt: "UPT Samarinda",
+                                                lat: -0.501841,
+                                                lng: 117.114566
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.002",
+                                                nama_ruas: "Jalan Tenggarong",
+                                                nomor: "P.34.00.002",
+                                                name: "Jembatan Kartanegara",
+                                                panjang: 1022,
+                                                lebar: 21,
+                                                desa: "Tenggarong",
+                                                kecamatan: "Tenggarong",
+                                                kabupaten: "Kutai Kartanegara",
+                                                upt: "UPT Tenggarong",
+                                                lat: -0.4416,
+                                                lng: 116.9916
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.003",
+                                                nama_ruas: "Jalan Pulau Balang",
+                                                nomor: "P.34.00.003",
+                                                name: "Jembatan Pulau Balang",
+                                                panjang: 540,
+                                                lebar: 12,
+                                                desa: "Karang Joang",
+                                                kecamatan: "Balikpapan Utara",
+                                                kabupaten: "Balikpapan",
+                                                upt: "UPT Balikpapan",
+                                                lat: -1.1861,
+                                                lng: 116.8897
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.004",
+                                                nama_ruas: "Jalan Sungai Wain",
+                                                nomor: "P.34.00.004",
+                                                name: "Jembatan Sungai Wain",
+                                                panjang: 280,
+                                                lebar: 8,
+                                                desa: "Sungai Wain",
+                                                kecamatan: "Balikpapan Utara",
+                                                kabupaten: "Balikpapan",
+                                                upt: "UPT Balikpapan",
+                                                lat: -1.2050,
+                                                lng: 116.9080
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.005",
+                                                nama_ruas: "Jalan Benuo Taka",
+                                                nomor: "P.34.00.005",
+                                                name: "Jembatan Benuo Taka",
+                                                panjang: 450,
+                                                lebar: 14,
+                                                desa: "Benuo Taka",
+                                                kecamatan: "Penajam",
+                                                kabupaten: "Penajam Paser Utara",
+                                                upt: "UPT Penajam",
+                                                lat: -1.2745,
+                                                lng: 116.3467
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.006",
+                                                nama_ruas: "Jalan Kutai Barat",
+                                                nomor: "P.34.00.006",
+                                                name: " Simp. 4 Jalan Teuku Umar Lok Bahu, Samarinda",
+                                                panjang: 350,
+                                                lebar: 10,
+                                                desa: "Melak",
+                                                kecamatan: "Melak",
+                                                kabupaten: "Kutai Barat",
+                                                upt: "UPT Kutai Barat",
+                                                lat: -0.1467,
+                                                lng: 115.8820
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.007",
+                                                nama_ruas: "Jalan Berau",
+                                                nomor: "P.34.00.007",
+                                                name: "Jembatan Berau",
+                                                panjang: 400,
+                                                lebar: 11,
+                                                desa: "Tanjung Redeb",
+                                                kecamatan: "Tanjung Redeb",
+                                                kabupaten: "Berau",
+                                                upt: "UPT Berau",
+                                                lat: 2.1557,
+                                                lng: 117.4962
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.008",
+                                                nama_ruas: "Jalan Bontang",
+                                                nomor: "P.34.00.008",
+                                                name: "Jembatan Bontang",
+                                                panjang: 320,
+                                                lebar: 9,
+                                                desa: "Bontang Kuala",
+                                                kecamatan: "Bontang Utara",
+                                                kabupaten: "Bontang",
+                                                upt: "UPT Bontang",
+                                                lat: 0.1333,
+                                                lng: 117.4833
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.009",
+                                                nama_ruas: "Jalan Tanah Grogot",
+                                                nomor: "P.34.00.009",
+                                                name: "Jembatan Paser",
+                                                panjang: 500,
+                                                lebar: 13,
+                                                desa: "Tanah Grogot",
+                                                kecamatan: "Tanah Grogot",
+                                                kabupaten: "Paser",
+                                                upt: "UPT Paser",
+                                                lat: -1.8721,
+                                                lng: 116.2550
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.010",
+                                                nama_ruas: "Jalan Kutai Timur",
+                                                nomor: "P.34.00.010",
+                                                name: "Jembatan Kutai Timur",
+                                                panjang: 600,
+                                                lebar: 12,
+                                                desa: "Sangatta",
+                                                kecamatan: "Sangatta Utara",
+                                                kabupaten: "Kutai Timur",
+                                                upt: "UPT Kutai Timur",
+                                                lat: 0.5300,
+                                                lng: 117.4650
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.011",
+                                                nama_ruas: "Jalan Mahakam Ulu",
+                                                nomor: "P.34.00.011",
+                                                name: "Jembatan Mahakam Ulu",
+                                                panjang: 350,
+                                                lebar: 10,
+                                                desa: "Long Bagun",
+                                                kecamatan: "Long Bagun",
+                                                kabupaten: "Mahakam Ulu",
+                                                upt: "UPT Mahakam Ulu",
+                                                lat: 0.6172,
+                                                lng: 114.8139
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.012",
+                                                nama_ruas: "Jalan Loa Janan",
+                                                nomor: "P.34.00.012",
+                                                name: "Jembatan Loa Janan",
+                                                panjang: 420,
+                                                lebar: 11,
+                                                desa: "Loa Janan",
+                                                kecamatan: "Loa Janan",
+                                                kabupaten: "Kutai Kartanegara",
+                                                upt: "UPT Kutai Kartanegara",
+                                                lat: -0.7322,
+                                                lng: 117.0731
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.013",
+                                                nama_ruas: "Jalan Samboja",
+                                                nomor: "P.34.00.013",
+                                                name: "Jembatan Samboja",
+                                                panjang: 390,
+                                                lebar: 10,
+                                                desa: "Samboja",
+                                                kecamatan: "Samboja",
+                                                kabupaten: "Kutai Kartanegara",
+                                                upt: "UPT Kutai Kartanegara",
+                                                lat: -1.0733,
+                                                lng: 117.0550
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.014",
+                                                nama_ruas: "Jalan Muara Badak",
+                                                nomor: "P.34.00.014",
+                                                name: "Jembatan Muara Badak",
+                                                panjang: 370,
+                                                lebar: 9,
+                                                desa: "Muara Badak",
+                                                kecamatan: "Muara Badak",
+                                                kabupaten: "Kutai Kartanegara",
+                                                upt: "UPT Kutai Kartanegara",
+                                                lat: 0.4822,
+                                                lng: 117.4567
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.015",
+                                                nama_ruas: "Jalan Penajam",
+                                                nomor: "P.34.00.015",
+                                                name: "Jembatan Penajam",
+                                                panjang: 410,
+                                                lebar: 12,
+                                                desa: "Penajam",
+                                                kecamatan: "Penajam",
+                                                kabupaten: "Penajam Paser Utara",
+                                                upt: "UPT Penajam",
+                                                lat: -1.2889,
+                                                lng: 116.3489
+                                            },
+                                            {
+                                                kode_ruas: "P.34.00.016",
+                                                nama_ruas: "Jalan Talisayan",
+                                                nomor: "P.34.00.016",
+                                                name: "Jembatan Talisayan",
+                                                panjang: 330,
+                                                lebar: 8,
+                                                desa: "Talisayan",
+                                                kecamatan: "Talisayan",
+                                                kabupaten: "Berau",
+                                                upt: "UPT Berau",
+                                                lat: 2.0833,
+                                                lng: 117.6833
+                                            }
+                                        ];
+
+                                        // Initialize map
+                                        var map = L.map('leaflet-map').setView([-0.5, 117.1], 7);
+
+                                        // Add OpenStreetMap tile layer
+                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            attribution: '&copy; OpenStreetMap contributors'
+                                        }).addTo(map);
+                                        map.addLayer(osm);
+
+                                        // Marker cluster group for bridges
+                                        var bridgeMarkers = L.markerClusterGroup();
+                                        var markerRefs = {};
+
+                                        // --- MODAL HTML (Bootstrap 4/5 compatible, hanya sekali di body) ---
+                                        if (!document.getElementById('bridgeModal')) {
+                                            var modalHtml = `
+                                                <div class="modal fade" id="bridgeModal" tabindex="-1" role="dialog" aria-labelledby="bridgeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="bridgeModalLabel">Detail Jembatan</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeBridgeModal()">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <ul class="nav nav-tabs" id="bridgeTab" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" id="umum-tab" data-toggle="tab" href="#umum" role="tab" aria-controls="umum" aria-selected="true">Umum</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="khusus-tab" data-toggle="tab" href="#khusus" role="tab" aria-controls="khusus" aria-selected="false">Khusus</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="foto-tab" data-toggle="tab" href="#foto" role="tab" aria-controls="foto" aria-selected="false">Foto</a>
+                                                        </li>
+                                                        </ul>
+                                                        <div class="tab-content mt-3" id="bridgeTabContent">
+                                                        <div class="tab-pane fade show active" id="umum" role="tabpanel" aria-labelledby="umum-tab">
+                                                            <table class="table table-sm">
+                                                            <tbody id="umum-content"></tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="khusus" role="tabpanel" aria-labelledby="khusus-tab">
+                                                            <table class="table table-sm">
+                                                            <tbody id="khusus-content"></tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="foto" role="tabpanel" aria-labelledby="foto-tab">
+                                                            <div id="foto-content" class="text-center"></div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>`;
+                                            var modalDiv = document.createElement('div');
+                                            modalDiv.innerHTML = modalHtml;
+                                            document.body.appendChild(modalDiv);
+                                        }
+
+                                        // --- SHOW MODAL FUNCTION ---
+                                        function showBridgeModal(bridge) {
+                                            // Umum tab content
+                                            document.getElementById('umum-content').innerHTML = `
+                                                <tr><th>Nama Jembatan</th><td>${bridge.name}</td></tr>
+                                                <tr><th>Kode Ruas</th><td>${bridge.kode_ruas || '-'}</td></tr>
+                                                <tr><th>Nama Ruas</th><td>${bridge.nama_ruas || '-'}</td></tr>
+                                                <tr><th>Nomor</th><td>${bridge.nomor || '-'}</td></tr>
+                                                <tr><th>Desa</th><td>${bridge.desa || '-'}</td></tr>
+                                                <tr><th>Kecamatan</th><td>${bridge.kecamatan || '-'}</td></tr>
+                                                <tr><th>Kabupaten</th><td>${bridge.kabupaten || '-'}</td></tr>
+                                                <tr><th>UPT</th><td>${bridge.upt || '-'}</td></tr>
+                                                <tr><th>Latitude</th><td>${bridge.lat}</td></tr>
+                                                <tr><th>Longitude</th><td>${bridge.lng}</td></tr>
+                                            `;
+                                            // Khusus tab content (dummy)
+                                            document.getElementById('khusus-content').innerHTML = `
+                                            <tr>
+                                                <td colspan="2" class="text-center">
+                                                    <img src="assets/images/jmbt/5.png" alt="Tipe Jembatan" style="max-width:100%;max-height:320px;display:block;margin:0 auto 10px;">
+                                                </td>
+                                            </tr>
+                                                <tr><th>Type Bangunan Atas</th><td>${bridge.type_bangunan_atas || 'Gelagar Komposit'}</td></tr>
+                                                <tr><th>Kondisi Bangunan Atas</th><td>${bridge.kondisi_bangunan_atas || 'Baik'}</td></tr>
+                                                <tr><th>Type Bangunan Bawah</th><td>${bridge.type_bangunan_bawah || 'Abutment'}</td></tr>
+                                                <tr><th>Kondisi Bangunan Bawah</th><td>${bridge.kondisi_bangunan_bawah || 'Baik'}</td></tr>
+                                                <tr><th>Type Pondasi</th><td>${bridge.type_pondasi || 'Langsung'}</td></tr>
+                                                <tr><th>Kondisi Pondasi</th><td>${bridge.kondisi_pondasi || 'Baik'}</td></tr>
+                                                <tr><th>Type Lantai</th><td>${bridge.type_lantai || 'Beton Bertulang'}</td></tr>
+                                                <tr><th>Kondisi Lantai</th><td>${bridge.kondisi_lantai || 'Baik'}</td></tr>
+                                                <tr><th>Nilai Kondisi</th><td>${bridge.nilai_kondisi || '5'}</td></tr>
+                                                <tr>
+                                                    <th>Kesimpulan Kondisi Jembatan</th>
+                                                    <td>
+                                                        <span class="badge badge-success" style="font-size:1.2rem; font-weight:bold;">
+                                                            ${bridge.kesimpulan_kondisi || 'Baik'}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr><th colspan="2"><strong>Kondisi Lingkungan</strong></th></tr>
+                                                <tr><th style="padding-left:2em;">Elevasi Jembatan</th><td>${bridge.elevasi_jembatan || '-'}</td></tr>
+                                                <tr><th style="padding-left:2em;">Elevasi Muka Air Banjir</th><td>${bridge.elevasi_muka_air_banjir || '-'}</td></tr>
+                                                <tr><th style="padding-left:2em;">Elevasi Muka Air Normal</th><td>${bridge.elevasi_muka_air_normal || '-'}</td></tr>
+                                            `;
+                                            // Foto tab content (dummy image)
+                                            document.getElementById('foto-content').innerHTML = bridge.foto && bridge.foto.trim() !== ''
+                                                ? bridge.foto.split(',').map(src => `<img src="${src.trim()}" alt="Foto Jembatan" class="img-fluid m-1 bridge-photo" style="max-height:150px;cursor:pointer;">`).join('')
+                                                : [
+                                                    "assets/images/jmbt/1.png",
+                                                    "assets/images/jmbt/2.png",
+                                                    "assets/images/jmbt/3.png",
+                                                    "assets/images/jmbt/4.png"
+                                                ].map(src => `<img src="${src}" alt="Foto Jembatan" class="img-fluid m-1 bridge-photo" style="max-height:150px;cursor:pointer;">`).join('');
+
+                                            // Tambahkan event listener untuk membesarkan foto saat diklik
+                                            setTimeout(function() {
+                                                var imgs = document.querySelectorAll('#foto-content .bridge-photo');
+                                                imgs.forEach(function(img) {
+                                                    img.onclick = function() {
+                                                        // Cek dan hapus modal foto jika sudah ada
+                                                        var oldModal = document.getElementById('photoModal');
+                                                        if (oldModal) oldModal.remove();
+
+                                                        // Buat modal foto
+                                                        var modal = document.createElement('div');
+                                                        modal.id = 'photoModal';
+                                                        modal.style.position = 'fixed';
+                                                        modal.style.top = 0;
+                                                        modal.style.left = 0;
+                                                        modal.style.width = '100vw';
+                                                        modal.style.height = '100vh';
+                                                        modal.style.background = 'rgba(0,0,0,0.8)';
+                                                        modal.style.display = 'flex';
+                                                        modal.style.alignItems = 'center';
+                                                        modal.style.justifyContent = 'center';
+                                                        modal.style.zIndex = 9999;
+                                                        modal.innerHTML = `
+                                                            <img src="${img.src}" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 0 20px #000;">
+                                                            <span style="position:absolute;top:30px;right:40px;font-size:3rem;color:#fff;cursor:pointer;font-weight:bold;z-index:10000;" id="closePhotoModal">&times;</span>
+                                                        `;
+                                                        document.body.appendChild(modal);
+                                                        document.getElementById('closePhotoModal').onclick = function() {
+                                                            modal.remove();
+                                                        };
+                                                        modal.onclick = function(e) {
+                                                            if (e.target === modal) modal.remove();
+                                                        };
+                                                    };
+                                                });
+                                            }, 100);
+
+                                            // Show modal (Bootstrap 4/5 compatible)
+                                            var modal = document.getElementById('bridgeModal');
+                                            if (typeof $ !== 'undefined' && typeof $.fn.modal === 'function') {
+                                                // Bootstrap 4
+                                                $(modal).modal('show');
+                                            } else if (modal && modal.classList) {
+                                                // Fallback for Bootstrap 5
+                                                modal.classList.add('show');
+                                                modal.style.display = 'block';
+                                                modal.removeAttribute('aria-hidden');
+                                                modal.setAttribute('aria-modal', 'true');
+                                            }
+                                        }
+
+                                        // Close modal helper
+                                        function closeBridgeModal() {
+                                            var modal = document.getElementById('bridgeModal');
+                                            if (typeof $ !== 'undefined' && typeof $.fn.modal === 'function') {
+                                                $(modal).modal('hide');
+                                            } else if (modal && modal.classList) {
+                                                modal.classList.remove('show');
+                                                modal.style.display = 'none';
+                                                modal.setAttribute('aria-hidden', 'true');
+                                                modal.removeAttribute('aria-modal');
+                                            }
+                                        }
+
+                                        // --- ADD MARKERS ---
+                                        bridges.forEach(function (bridge) {
+                                            var marker = L.marker([bridge.lat, bridge.lng])
+                                                .bindTooltip(
+                                                    `<strong>${bridge.name}</strong><br>Klik untuk detail data`,
+                                                    {permanent: false, direction: 'top', className: 'leaflet-tooltip-custom'}
+                                                );
+                                            marker.on('click', function () {
+                                                showBridgeModal(bridge);
+                                            });
+                                            bridgeMarkers.addLayer(marker);
+                                            markerRefs[bridge.name] = marker;
+                                        });
+
+                                        // Group layer for Layer Control
+                                        var overlays = [
+                                            {
+                                                groupName: "Jembatan",
+                                                expanded: true,
+                                                layers: {
+                                                    "Sebaran Jembatan": bridgeMarkers
+                                                }
+                                            }
+                                        ];
+
+                                        var baseMaps = [
+                                            { 
+                                                groupName : "Google Base Maps",
+                                                expanded : true,
+                                                layers    : {
+                                                    " Satellite" :  g_satellite,
+                                                    " Road Map"  :  g_roadmap,
+                                                    " Terrain"   :  g_terrain,
+                                                    " Hybrid"   :   g_hybrid
+                                                }
+                                            }
+                                        ];
+
+                                        L.control.scale({maxWidth: 150}).addTo(map);
+
+                                        var osmUrl2='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+                                        var osmAttrib2='Map data &copy; OpenStreetMap contributors';
+                                        var osm2 = new L.TileLayer(osmUrl2, {minZoom: 0, maxZoom: 13, attribution: osmAttrib2 });
+                                        var rect1 = {color: "#ff1100", weight: 3};
+                                        var rect2 = {color: "#0000AA", weight: 1, opacity:0, fillOpacity:0};
+                                        var miniMap = new L.Control.MiniMap(osm2, {
+                                            toggleDisplay: true, 
+                                            autoToggleDisplay:false,
+                                            position : "bottomleft", 
+                                            minimized: true,
+                                            centerFixed: false,
+                                            aimingRectOptions : rect1, 
+                                            shadowRectOptions: rect2
+                                        }).addTo(map); 
+
+                                        var zoom_bar = new L.Control.ZoomBar({position: 'topleft'}).addTo(map); 
+                                        L.Measure = {
+                                            linearMeasurement: "Distance",
+                                            areaMeasurement: "Area",
+                                            start: "start",
+                                            meter: "m",
+                                            kilometer: "km",
+                                            squareMeter: "m²",
+                                            squareKilometers: "km²",
+                                        };
+                                        var measure = L.control.measure({}).addTo(map);
+
+                                        //add standard controls
+                                        L.control.coordinates({
+                                            position:"bottomright",
+                                            useDMS:true,
+                                            labelTemplateLat:"Lat {y}",
+                                            labelTemplateLng:"Long {x}",
+                                            useLatLngOrder:true
+                                        }).addTo(map);			
+                                        var options = {
+                                            container_width 	: "200px",
+                                            group_maxHeight     : "80px",
+                                            //container_maxHeight : "350px", 
+                                            exclusive       	: false,
+                                            collapsed : true, 
+                                            position: 'topright'
+                                        };
+
+                                        var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+                                        map.addControl(control);
+
+                                        // Add bridge markers to map by default
+                                        map.addLayer(bridgeMarkers);
+
+                                        control.selectLayer();
+
+                                        // Expose markerRefs and map for table click
+                                        window.bridgeMapData = { markerRefs, map, bridges };
+                                    </script>
+
+    
+
+                                </div>
+                            </div>
+                    <!-- end row -->
+
+                    <!-- end row -->
+                </div>
+
+                <!--- end row -->
+
+            </div> <!-- end container-fluid -->
+
+        </div> <!-- end content -->
+
+
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        2025 &copy;Widya Aika  <a href="">hardygraph</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+        <div class="rightbar-title">
+            <a href="javascript:void(0);" class="right-bar-toggle float-right">
+                <i class="mdi mdi-close"></i>
+            </a>
+            <h4 class="font-16 m-0 text-white">Theme</h4>
+        </div>
+        <div class="slimscroll-menu">
+
+            <div class="p-3">
+                <!-- <div class="alert alert-warning" role="alert">
+                    <strong>Customize </strong> the overall color scheme, layout, etc.
+                </div> -->
+                <div class="mb-2">
+                    <img src="assets/images/layouts/light.png" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="custom-control custom-switch mb-3">
+                    <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
+                    <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
+                </div>
+
+                <div class="mb-2">
+                    <img src="assets/images/layouts/dark.png" class="img-fluid img-thumbnail" alt="">
+                </div>
+                <div class="custom-control custom-switch mb-3">
+                    <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch"
+                        data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css" />
+                    <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
+                </div>
+            </div>
+        </div> <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <a href="javascript:void(0);" class="right-bar-toggle demos-show-btn">
+        <i class="mdi mdi-settings-outline mdi-spin"></i> &nbsp;Choose Theme
+    </a>
+
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+
+    <!--C3 Chart-->
+    <script src="assets/libs/d3/d3.min.js"></script>
+    <script src="assets/libs/c3/c3.min.js"></script>
+
+    <script src="assets/libs/echarts/echarts.min.js"></script>
+
+    <script src="assets/js/pages/dashboard.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+
+    <!-- third party js -->
+    <script src="assets/libs/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/libs/datatables/dataTables.responsive.min.js"></script>
+
+    <!-- Tickets js -->
+    <script src="assets/js/pages/tickets.init.js"></script>
+
+</body>
+
+</html>
